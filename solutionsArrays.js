@@ -24,16 +24,16 @@ function skipDivisibleByFourWithForLoop(numbers) {
   // Implement using a for...in loop
   function skipDivisibleByFourWithForInLoop(numbers) {
     const result = [];
-    for (const i in numbers) {
-      if (numbers[i] % 4 !== 0) {
-        result.push(numbers[i]);
+    for (const idx in numbers) {
+      if (numbers[idx] % 4 !== 0) {
+        result.push(numbers[idx]);
       }
     }
     console.log(result);
   }
   // Implement using a map statement
   function upperCaseAllWords(words) {
-    const result = words.map((i) => i.toUpperCase());
+    const result = words.map((el, idx, array) => el.toUpperCase()); // TODO: not i but el 
     console.log(result);
   }
   
@@ -48,12 +48,12 @@ function skipDivisibleByFourWithForLoop(numbers) {
   
   // Use map to prepend "Yummy"
   function prependYummyToFruits(fruits) {
-    const result = fruits.map((i) => "Yummy" + " " + i);
+    const result = fruits.map((i) => "Yummy" + " " + i); // TODO: not i but el
     console.log(result);
   }
   // Use filter to include fruits with names shorter than 6 characters
   function filterShortFruits(fruits) {
-    const result = fruits.filter((i) => i.length <= 6);
+    const result = fruits.filter((i) => i.length <= 6); // TODO: not i but el
     console.log(result);
   }
   
@@ -62,7 +62,7 @@ function skipDivisibleByFourWithForLoop(numbers) {
   
     for (idx = 0; idx < words.length; idx++) {
       let word = words[idx].split("");
-      for (i = 0; i < word.length; i++) {
+      for (i = 0; i < word.length; i++) { // wordIdx, charIdx, TODO:
         if (i % 2 == 0) {
           word[i] = word[i].toUpperCase();
         } else {
