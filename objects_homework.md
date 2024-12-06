@@ -184,3 +184,5 @@ console.log(getPowerStat('loferMan', 'Speed')); // should output 0
 
 ## Next up
 - Object iteration, (getTopHeroesByStat)
+- Object deep and shallow copy
+- Array cloneing
