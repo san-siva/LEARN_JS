@@ -1,3 +1,55 @@
+## Turnary operator
+
+represent this as ternary operator
+
+```js
+const isAksharaPretty = true;
+let result;
+
+if (isAksharaPretty) {
+	result = 'Akshara is pretty';
+} else {
+	result = 'Are you sure you are not blind?';
+}
+```
+
+```js
+const whatIsShe = (
+    isSheMySoulMate,
+    isSheMyGirlFriend,
+    isSheMyWify
+) => {
+	let result;
+
+	if (isSheMySoulMate && isSheMyGirlFriend && isSheMyWify) {
+		result = 'Soulmate, girlfriend and wify';
+	} else if (isSheMySoulMate && isSheMyGirlFriend) {
+		result = 'Soulmate and girlfriend';
+	} else if (isSheMyWify) {
+		result = 'Wify';
+	} else if (isSheMyGirlFriend) {
+		result = 'Girlfriend';
+	} else if (isSheMySoulMate) {
+		result = 'Soulmate';
+	} else {
+		result = 'Are you crazy she is mine';
+	}
+    
+    return result;
+};
+
+console.log(whatIsShe(false, false, false)); // "Are you crazy she is mine"
+console.log(whatIsShe(false, false, true));  // "Wify"
+console.log(whatIsShe(false, true, false));  // "Girlfriend"
+console.log(whatIsShe(false, true, true));   // "Wify"
+console.log(whatIsShe(true, false, false));  // "Soulmate"
+console.log(whatIsShe(true, false, true));   // "Wify"
+console.log(whatIsShe(true, true, false));   // "Soulmate and girlfriend"
+console.log(whatIsShe(true, true, true));    // "Soulmate, girlfriend and wify"
+```
+
+## Object Homework
+
 ```js
 const superheroDatabase = {
 	superman: {
@@ -93,6 +145,9 @@ Complete the following functions:
 const getSideKickPowerStats = superhero => {
 	// return the power stats of the sidekick of the superhero
 	// if the superhero has no sidekick, return default power stats (strength: 0, speed: 0, intelligence: 0)
+	return superheroDatabase[superhero].sidekick
+		? superheroDatabase[superhero].sidekick.powerStats
+		: `No sidekick found for ${superhero}`;
 };
 console.log(getSideKickPowerStats('batman')); // should output { strength: 50, speed: 65, intelligence: 70 }
 console.log(getSideKickPowerStats('superman')); // "No sidekick found for [superhero]"
@@ -118,12 +173,13 @@ console.log(printHeroMetaData('wonderwoman')); // should output "Hero not found"
 ```
 
 ```js
+// ?? Hint: you can use turnary operator to check if the value is null, undefined, or missing
 const getHeroPlanet = superhero => {
 	// return the planet of the superhero
 	// if the superhero has no planet, return 'No planet'
 };
-console.log(getHeroPlanet('batman')); // should output true
-console.log(getHeroPlanet('superman')); // should output 'Earth'
+console.log(getHeroPlanet('batman')); // should output "Earth"
+console.log(getHeroPlanet('superman')); // should output true
 console.log(getHeroPlanet('wonderwoman')); // should output 'No planet'
 console.log(getHeroPlanet('loferMan')); // should output false
 console.log(getHeroPlanet('deadMan')); // should output 'No planet'
@@ -183,6 +239,7 @@ console.log(getPowerStat('loferMan', 'Speed')); // should output 0
 ```
 
 ## Next up
+
 - Object iteration, (getTopHeroesByStat)
 - Object deep and shallow copy
 - Array cloneing
