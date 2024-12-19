@@ -163,18 +163,23 @@ console.log(getHeroStrength('undeadMan')); // should output 'No strength'
 console.log('..............EXERCISE 5.............');
 
 const getSideKickStrength = superhero => {
-	const sideKick = superheroDatabase[superhero]?.sidekick;
+	return typeof superheroDatabase[superhero]?.sidekick === 'object'
+		? (superheroDatabase[superhero]?.sidekick?.powerStats?.Strength ??
+				'No sidekick Power')
+		: 'No sidekick';
 
-	// 1. check if sidekick is a valid object
-	const isSideKickPresent = typeof sideKick === 'object';
-	if (!isSideKickPresent) {
-		// 2. if its not then return 'No sidekick'
-		return 'No sidekick';
-	}
-
-	// 2. check if sidekick has a powerStats object with valid strength (anything other than null or undefined)
-	return sideKick?.powerStats?.Strength ?? 'No sidekick Power';
-	// 3. ?? operator is used to check if the value is null or undefined
+	// const sideKick = superheroDatabase[superhero]?.sidekick;
+	//
+	// // 1. check if sidekick is a valid object
+	// const isSideKickPresent = typeof sideKick === 'object';
+	// if (!isSideKickPresent) {
+	// 	// 2. if its not then return 'No sidekick'
+	// 	return 'No sidekick';
+	// }
+	//
+	// // 2. check if sidekick has a powerStats object with valid strength (anything other than null or undefined)
+	// return sideKick?.powerStats?.Strength ?? 'No sidekick Power';
+	// // 3. ?? operator is used to check if the value is null or undefined
 };
 
 // return the strength of the sidekick of the superhero
