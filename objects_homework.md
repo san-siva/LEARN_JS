@@ -207,11 +207,11 @@ const getSideKickStrength = superhero => {
 };
 
 console.log(getSideKickStrength('batman')); // should output 50
-console.log(getSideKickStrength('superman')); // should output 'No sidekick'
+console.log(getSideKickStrength('superman')); // should output 'No sidekick Power'
 console.log(getSideKickStrength('wonderwoman')); // should output 'No sidekick'
 console.log(getSideKickStrength('loferMan')); // should output false
 console.log(getSideKickStrength('deadMan')); // should output 0
-console.log(getSideKickStrength('undeadMan')); // should output null
+console.log(getSideKickStrength('undeadMan')); // should output 'No sidekick Power'
 ```
 
 ```js
