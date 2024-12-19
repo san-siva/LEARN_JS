@@ -141,6 +141,8 @@ const original = {
 	},
 };
 function updateAge(original) {
+
+	original.remove.age
 	// remove age from original object
 	// Expected Output:
 	// {
