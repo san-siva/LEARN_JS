@@ -1,6 +1,6 @@
 ## Turnary operator
 
-represent this as ternary operator
+1. represent this as ternary operator
 
 ```js
 const isAksharaPretty = true;
@@ -13,12 +13,16 @@ if (isAksharaPretty) {
 }
 ```
 
+Answer
+
 ```js
-const whatIsShe = (
-    isSheMySoulMate,
-    isSheMyGirlFriend,
-    isSheMyWify
-) => {
+
+```
+
+2. represent this as ternary operator
+
+```js
+const whatIsShe = (isSheMySoulMate, isSheMyGirlFriend, isSheMyWify) => {
 	let result;
 
 	if (isSheMySoulMate && isSheMyGirlFriend && isSheMyWify) {
@@ -34,18 +38,24 @@ const whatIsShe = (
 	} else {
 		result = 'Are you crazy she is mine';
 	}
-    
-    return result;
+
+	return result;
 };
 
 console.log(whatIsShe(false, false, false)); // "Are you crazy she is mine"
-console.log(whatIsShe(false, false, true));  // "Wify"
-console.log(whatIsShe(false, true, false));  // "Girlfriend"
-console.log(whatIsShe(false, true, true));   // "Wify"
-console.log(whatIsShe(true, false, false));  // "Soulmate"
-console.log(whatIsShe(true, false, true));   // "Wify"
-console.log(whatIsShe(true, true, false));   // "Soulmate and girlfriend"
-console.log(whatIsShe(true, true, true));    // "Soulmate, girlfriend and wify"
+console.log(whatIsShe(false, false, true)); // "Wify"
+console.log(whatIsShe(false, true, false)); // "Girlfriend"
+console.log(whatIsShe(false, true, true)); // "Wify"
+console.log(whatIsShe(true, false, false)); // "Soulmate"
+console.log(whatIsShe(true, false, true)); // "Wify"
+console.log(whatIsShe(true, true, false)); // "Soulmate and girlfriend"
+console.log(whatIsShe(true, true, true)); // "Soulmate, girlfriend and wify"
+```
+
+Answer
+
+```js
+
 ```
 
 ## Object Homework
@@ -126,7 +136,7 @@ const superheroDatabase = {
 };
 ```
 
-Access the following properties from the `superheroDatabase` object:
+3. Access the following properties from the `superheroDatabase` object:
 
 ```js
 const superManStrength = 0;
@@ -139,7 +149,13 @@ const batmanWierdWeekness = null;
 console.log(batmanWeekness); // should output null
 ```
 
-Complete the following functions:
+Answer
+
+```js
+
+```
+
+4. Complete the following function
 
 ```js
 const getSideKickPowerStats = superhero => {
@@ -153,6 +169,14 @@ console.log(getSideKickPowerStats('batman')); // should output { strength: 50, s
 console.log(getSideKickPowerStats('superman')); // "No sidekick found for [superhero]"
 ```
 
+Answer
+
+```js
+
+```
+
+5. Complete the following function
+
 ```js
 const getSuperHeroPartner = superhero => {
 	// return the partner of the superhero
@@ -163,6 +187,14 @@ console.log(getSuperHeroPartner('superman')); // should output 'Lois Lane'
 console.log(getSuperHeroPartner('wonderwoman')); // should output 'No partner'
 ```
 
+Answer
+
+```js
+
+```
+
+6. Complete the following function
+
 ```js
 const printHeroMetaData = superhero => {
 	// return "Alias: Bruce Wayne, Base: Gotham, Sidekick: Robin"
@@ -171,6 +203,14 @@ console.log(printHeroMetaData('batman')); // should output "Alias: Bruce Wayne, 
 console.log(printHeroMetaData('superman')); // should output "Alias: Clark Kent, Base: Metropolis, Sidekick: No sidekick"
 console.log(printHeroMetaData('wonderwoman')); // should output "Hero not found"
 ```
+
+Answer
+
+```js
+
+```
+
+7. Complete the following function
 
 ```js
 // ?? Hint: you can use turnary operator to check if the value is null, undefined, or missing
@@ -186,6 +226,14 @@ console.log(getHeroPlanet('deadMan')); // should output 'No planet'
 console.log(getHeroPlanet('undeadMan')); // should output 'No planet'
 ```
 
+Answer
+
+```js
+
+```
+
+8. Complete the following function
+
 ```js
 const getHeroStrength = superhero => {
 	// return the strength of the superhero
@@ -198,6 +246,14 @@ console.log(getHeroStrength('loferMan')); // should output 'No strength'
 console.log(getHeroStrength('deadMan')); // should output 'No strength'
 console.log(getHeroStrength('undeadMan')); // should output 'No strength'
 ```
+
+Answer
+
+```js
+
+```
+
+9. Complete the following function
 
 ```js
 const getSideKickStrength = superhero => {
@@ -214,6 +270,14 @@ console.log(getSideKickStrength('deadMan')); // should output 0
 console.log(getSideKickStrength('undeadMan')); // should output 'No sidekick Power'
 ```
 
+Answer
+
+```js
+
+```
+
+10. Complete the following function
+
 ```js
 const isPlanetKnown = superhero => {
 	// return true if the superhero has a known planet
@@ -227,6 +291,14 @@ console.log(isPlanetKnown('deadMan')); // should output false
 console.log(isPlanetKnown('undeadMan')); // should output false
 ```
 
+Answer
+
+```js
+
+```
+
+11. Complete the following function
+
 ```js
 const getPowerStat = (superhero, stat) => {
 	// return the value of the given power stat for the superhero
@@ -236,6 +308,12 @@ console.log(getPowerStat('batman', 'strength')); // should output 70
 console.log(getPowerStat('superman', 'Speed')); // should output 99
 console.log(getPowerStat('wonderwoman', 'Strength')); // should output 0
 console.log(getPowerStat('loferMan', 'Speed')); // should output 0
+```
+
+Answer
+
+```js
+
 ```
 
 ## Next up
