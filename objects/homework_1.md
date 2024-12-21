@@ -16,7 +16,11 @@ if (isAksharaPretty) {
 Answer
 
 ```js
-
+console.log("..............Exersice 1.............");
+const result = (isAksharaPretty) =>
+	
+  isAksharaPretty ? "Akshara is pretty" : "Are you sure you are not blind?";
+console.log(result(true));
 ```
 
 2. represent this as ternary operator
@@ -152,7 +156,7 @@ console.log(batmanWeekness); // should output null
 Answer
 
 ```js
-
+superheroDatabase[superManStrength]
 ```
 
 4. Complete the following function
@@ -172,7 +176,17 @@ console.log(getSideKickPowerStats('superman')); // "No sidekick found for [super
 Answer
 
 ```js
-
+console.log('..............QUESTION 4.............');
+const getSuperHeroPartner = superhero => {
+	return superheroDatabase[superhero]?.partner
+		? superheroDatabase[superhero].partner
+		: `No partner found for ${superhero}`;
+	// return the partner of the superhero
+	// if the superhero has no partner, return 'No partner'
+};
+console.log(getSuperHeroPartner('batman')); // should output 'No partner'
+console.log(getSuperHeroPartner('superman')); // should output 'Lois Lane'
+console.log(getSuperHeroPartner('wonderwoman')); // should output 'No partner'
 ```
 
 5. Complete the following function
@@ -190,7 +204,22 @@ console.log(getSuperHeroPartner('wonderwoman')); // should output 'No partner'
 Answer
 
 ```js
+console.log('..............QUESTION 5.............');
 
+const printHeroMetaData = superhero => {
+	// return "Alias: Bruce Wayne, Base: Gotham, Sidekick: Robin"
+	const Alias = superheroDatabase[superhero]?.['Weird+Alias'] || 'no output';
+	const Base = superheroDatabase[superhero]?.base?.city || ' no output ';
+	const Sidekick =
+		superheroDatabase[superhero]?.sidekick?.name || 'No sidekick';
+
+	return superheroDatabase[superhero]
+		? `Alias:${Alias}, Base:${Base}, Sidekick:${Sidekick}`
+		: `Hero Not found `;
+};
+console.log(printHeroMetaData('batman')); // should output "Alias: Bruce Wayne, Base: Gotham, Sidekick: Robin"
+console.log(printHeroMetaData('superman')); // should output "Alias: Clark Kent, Base: Metropolis, Sidekick: No sidekick"
+console.log(printHeroMetaData('wonderwoman')); // should output "Hero not found"
 ```
 
 6. Complete the following function
@@ -207,7 +236,22 @@ console.log(printHeroMetaData('wonderwoman')); // should output "Hero not found"
 Answer
 
 ```js
+console.log('..............QUESTION 6.............');
 
+// ?? Hint: you can use turnary operator to check if the value is null, undefined, or missing
+const getHeroPlanet = superhero => {
+	return superheroDatabase[superhero]
+		? superheroDatabase[superhero]?.planet
+		: 'No planet';
+	// return the planet of the superhero
+	// if the superhero has no planet, return 'No planet'
+};
+console.log(getHeroPlanet('batman')); // should output "Earth"
+console.log(getHeroPlanet('superman')); // should output true
+console.log(getHeroPlanet('wonderwoman')); // should output 'No planet'
+console.log(getHeroPlanet('loferMan')); // should output false
+console.log(getHeroPlanet('deadMan')); // should output 'No planet'
+console.log(getHeroPlanet('undeadMan')); // should output 'No planet'
 ```
 
 7. Complete the following function
@@ -229,6 +273,25 @@ console.log(getHeroPlanet('undeadMan')); // should output 'No planet'
 Answer
 
 ```js
+console.log('..............QUESTION 7.............');
+
+const getHeroStrength = superhero => {
+	const strength = superheroDatabase[superhero]?.powerStats?.Strength;
+	return strength ||
+		superhero === 0 ||
+		superhero === null ||
+		superhero === false
+		? strength
+		: 'No Strength';
+	// return the strength of the superhero
+	// if the superhero has no strength, return 'No strength'
+};
+console.log(getHeroStrength('batman')); // should output 70
+console.log(getHeroStrength('superman')); // should output 100
+console.log(getHeroStrength('wonderwoman')); // should output 'No strength'
+console.log(getHeroStrength('loferMan')); // should output 'No strength'
+console.log(getHeroStrength('deadMan')); // should output 'No strength'
+console.log(getHeroStrength('undeadMan')); // should output 'No strength'
 
 ```
 
@@ -250,13 +313,34 @@ console.log(getHeroStrength('undeadMan')); // should output 'No strength'
 Answer
 
 ```js
+console.log('..............QUESTION 8.............');
 
+const getSideKickStrength = superhero => {
+	return typeof superheroDatabase[superhero]?.sidekick === 'object'
+		? (superheroDatabase[superhero]?.sidekick?.powerStats?.Strength ??
+				'No sidekick Power')
+		: 'No sidekick';
+
+};
+
+// return the strength of the sidekick of the superhero
+// if the superhero has no sidekick, return 'No sidekick'
+// if the sidekick has no strength, return 'No strength'
+
+console.log(getSideKickStrength('batman')); // should output 50
+console.log(getSideKickStrength('superman')); // should output 'No sidekick Power'
+console.log(getSideKickStrength('wonderwoman')); // should output 'No sidekick'
+console.log(getSideKickStrength('loferMan')); // should output false
+console.log(getSideKickStrength('deadMan')); // should output 0
+console.log(getSideKickStrength('undeadMan')); // should output 'No sidekick Power'
 ```
 
 9. Complete the following function
 
 ```js
+console.log('..............QUESTION 9.............')
 const getSideKickStrength = superhero => {
+
 	// return the strength of the sidekick of the superhero
 	// if the superhero has no sidekick, return 'No sidekick'
 	// if the sidekick has no strength, return 'No strength'
@@ -273,7 +357,25 @@ console.log(getSideKickStrength('undeadMan')); // should output 'No sidekick Pow
 Answer
 
 ```js
+console.log('..............QUESTION 9.............')
+const getSideKickStrengthh = superhero => {
+	const sideKick =superheroDatabase[superhero]?.sidekick
+	const strength =sideKick?.powerStats?.Strength
+	
+	return typeof sideKick === "object"
+	? strength ?? 'No strength' : 'No sidekick'
 
+	// return the strength of the sidekick of the superhero
+	// if the superhero has no sidekick, return 'No sidekick'
+	// if the sidekick has no strength, return 'No strength'
+};
+
+console.log(getSideKickStrengthh('batman')); // should output 50
+console.log(getSideKickStrengthh('superman')); // should output No strength'
+console.log(getSideKickStrengthh('wonderwoman')); // should output 'No sidekick'
+console.log(getSideKickStrengthh('loferMan')); // should output false
+console.log(getSideKickStrengthh('deadMan')); // should output 0
+console.log(getSideKickStrengthh('undeadMan')); // should output No strength'
 ```
 
 10. Complete the following function
@@ -294,6 +396,22 @@ console.log(isPlanetKnown('undeadMan')); // should output false
 Answer
 
 ```js
+console.log('..............QUESTION 10.............')
+
+// ?? Hint: you can use turnary operator to check if the value is null, undefined, or missing
+const getHeroPlanet = (superhero) => {
+  const planet = superheroDatabase[superhero]?.planet;
+
+  return planet ? planet : "No planet";
+  // return the planet of the superhero
+  // if the superhero has no planet, return 'No planet'
+};
+console.log(getHeroPlanet("batman")); // should output "Earth"
+console.log(getHeroPlanet("superman")); // should output true
+console.log(getHeroPlanet("wonderwoman")); // should output 'No planet'
+console.log(getHeroPlanet("loferMan")); // should output false
+console.log(getHeroPlanet("deadMan")); // should output 'No planet'
+console.log(getHeroPlanet("undeadMan")); // should output 'No planet'
 
 ```
 
@@ -313,6 +431,23 @@ console.log(getPowerStat('loferMan', 'Speed')); // should output 0
 Answer
 
 ```js
+console.log('..............QUESTION 11.............')
+
+
+const getPowerStat = (superhero, stat) => {
+	const heroName = superheroDatabase[superhero]
+	const strength = heroName?.powerStats?.[stat]
+	return strength
+	? strength
+	: '0'
+	// return the value of the given power stat for the superhero
+	// if the stat is missing, return 0
+};
+console.log(getPowerStat('batman', 'strength')); // should output 0
+console.log(getPowerStat('superman', 'Speed')); // should output 99
+console.log(getPowerStat('wonderwoman', 'Strength')); // should output 0
+console.log(getPowerStat('loferMan', 'Speed')); // should output 0
+
 
 ```
 
