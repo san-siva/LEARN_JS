@@ -208,7 +208,6 @@ const holidayCalendar = {
 			25: 'Christmas',
 			31: "New Year's Eve",
 		},
-		
 	},
 };
 ```
@@ -232,30 +231,30 @@ console.log(getHolidays(2021, false)); // should output 'Month not valid'
 console.log(getHolidays()); // should output 'Year not valid'
 console.log(getHolidays(null, false)); // should output 'Year not valid'
 ```
+
 ```js
 //answer
-console.log("..........QUESTION 1..........");
+console.log('..........QUESTION 1..........');
 
 const getHolidays = (year, month) => {
- 
-  if (typeof year !== "number") {
-    return "year not valid";
-  }
-  if (!holidayCalendar[year]) {
-    return "year not found";
-  }
+	if (typeof year !== 'number') {
+		return 'year not valid';
+	}
+	if (!holidayCalendar[year]) {
+		return 'year not found';
+	}
 
-  if (!month || typeof month !== "string") {
-    return "Month not valid";
-  }
-  const holidayMonth = holidayCalendar[year]?.[month];
-  return holidayMonth ? Object.values(holidayMonth) : "month not found";
+	if (!month || typeof month !== 'string') {
+		return 'Month not valid';
+	}
+	const holidayMonth = holidayCalendar[year]?.[month];
+	return holidayMonth ? Object.values(holidayMonth) : 'month not found';
 };
-console.log(getHolidays(2021, "apr")); // should output ['Ram Navami', 'Ambedkar Jayanti / Tamil New Year', 'Good Friday']
-console.log(getHolidays(2022, "apr")); // should output ['Ram Navami', 'Ambedkar Jayanti / Tamil New Year', 'Good Friday']
-console.log(getHolidays(2023, "apr")); // should output ['Mahavir Jayanti', 'Eid al-Fitr']
-console.log(getHolidays(1997, "apr")); // should output 'Year not found'
-console.log(getHolidays(2021, "bujji")); // should output 'Month not found'
+console.log(getHolidays(2021, 'apr')); // should output ['Ram Navami', 'Ambedkar Jayanti / Tamil New Year', 'Good Friday']
+console.log(getHolidays(2022, 'apr')); // should output ['Ram Navami', 'Ambedkar Jayanti / Tamil New Year', 'Good Friday']
+console.log(getHolidays(2023, 'apr')); // should output ['Mahavir Jayanti', 'Eid al-Fitr']
+console.log(getHolidays(1997, 'apr')); // should output 'Year not found'
+console.log(getHolidays(2021, 'bujji')); // should output 'Month not found'
 console.log(getHolidays(2021)); // should output 'Month not valid'
 console.log(getHolidays(2021, 99)); // should output 'Month not valid'
 console.log(getHolidays(2021, null)); // should output 'Month not valid'
@@ -278,36 +277,35 @@ console.log(getHolidaysCount(null)); // should output 'Year not valid'
 console.log(getHolidaysCount(false)); // should output 'Year not valid'
 console.log(getHolidaysCount()); // should output 'Year not valid'
 ```
+
 ```js
 //QUESTION 2
 
-console.log('..........QUESTION 2..........')
+console.log('..........QUESTION 2..........');
 // 2. Create a function that takes a year as an argument and returns the number of holidays in that year.
 
-const getHolidaysCount = (year) => {
-    
-  if (typeof year !== "number") {
-    return "year not valid";
-  }
-  if (!holidayCalendar[year]) {
-    return "year not found";
-  }
- 
-let holidays = 0;
-  for (let month in holidayCalendar[year] ){
-    holidays +=  Object.values(holidayCalendar[year][month]).length
+const getHolidaysCount = year => {
+	if (typeof year !== 'number') {
+		return 'year not valid';
+	}
+	if (!holidayCalendar[year]) {
+		return 'year not found';
+	}
 
-  }
-  return holidays   
-}
-console.log(getHolidaysCount(2021));  // should output 24
-console.log(getHolidaysCount(2022)); // should output 21
-console.log(getHolidaysCount(2023)); // should output 21
+	let holidays = 0;
+	for (let month in holidayCalendar[year]) {
+		holidays += Object.values(holidayCalendar[year][month]).length;
+	}
+	return holidays;
+};
+console.log(getHolidaysCount(2024)); // should output 26
+console.log(getHolidaysCount(2021)); // should output 26
+console.log(getHolidaysCount(2022)); // should output 26
+console.log(getHolidaysCount(2023)); // should output 24
 console.log(getHolidaysCount(1997)); // should output 'Year not found'
 console.log(getHolidaysCount(null)); // should output 'Year not valid'
 console.log(getHolidaysCount(false)); // should output 'Year not valid'
 console.log(getHolidaysCount()); // should output 'Year not valid'
-
 ```
 
 3. Create a function that takes a year as an argument and returns the number of holidays in that year and the month with the most holidays.
@@ -324,20 +322,32 @@ console.log(getHolidaysCountAndMonth(null)); // should output 'Year not valid'
 console.log(getHolidaysCountAndMonth(false)); // should output 'Year not valid'
 console.log(getHolidaysCountAndMonth()); // should output 'Year not valid'
 ```
+
 ```js
 
 ```
+
 4. Create a function that takes years as arguments and returns the year with the most holidays.
 
 ```js
 const getYearWithMostHolidays = (...years) => {
 	// return the year with the most holidays
 };
+
+// 26,  26,  24
 console.log(getYearWithMostHolidays(2021, 2022, 2023)); // should output 2021
+// 26,  26,  24
+console.log(getYearWithMostHolidays(2022, 2021, 2023)); // should output 2022
+
+//                                  26,   24
 console.log(getYearWithMostHolidays(2022, 2023)); // should output 2022
+//                                  26,   24
 console.log(getYearWithMostHolidays(2021, 2023)); // should output 2021
+//                                  26,   24
 console.log(getYearWithMostHolidays(2021, 2023, 1996)); // should output 2021
+//                                  26,   24
 console.log(getYearWithMostHolidays(2021, 2023, null)); // should output 2021
+//                          26,   24
 console.log(
 	getYearWithMostHolidays(2021, 2023, null, false, undefined, 'What')
 ); // should output 2021
