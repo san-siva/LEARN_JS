@@ -1,0 +1,307 @@
+const holidayCalendar = {
+  2024: {
+    jan: {
+      1: "New Year",
+      14: "Makar Sankranti / Pongal",
+      26: "Republic Day",
+    },
+    feb: {
+      14: "Valentine's Day",
+    },
+    mar: {
+      8: "International Women's Day",
+      25: "Holi",
+    },
+    apr: {
+      10: "Ram Navami",
+      14: "Ambedkar Jayanti / Tamil New Year",
+      21: "Eid al-Fitr",
+    },
+    may: {
+      1: "Labor Day",
+      23: "Buddha Purnima",
+    },
+    jun: {
+      16: "Father's Day",
+    },
+    jul: {
+      28: "Muharram",
+    },
+    aug: {
+      15: "Independence Day",
+      26: "Raksha Bandhan",
+      29: "Janmashtami",
+    },
+    sep: {
+      5: "Teachers' Day",
+      17: "Ganesh Chaturthi",
+    },
+    oct: {
+      2: "Gandhi Jayanti",
+      20: "Dussehra",
+      31: "Halloween",
+    },
+    nov: {
+      12: "Diwali",
+      14: "Children's Day",
+      24: "Guru Nanak Jayanti",
+    },
+    dec: {
+      25: "Christmas",
+      31: "New Year's Eve",
+    },
+  },
+  2023: {
+    jan: {
+      1: "New Year",
+      14: "Makar Sankranti / Pongal",
+      26: "Republic Day",
+    },
+    feb: {
+      14: "Valentine's Day",
+    },
+    mar: {
+      7: "Holi",
+      8: "International Women's Day",
+    },
+    apr: {
+      4: "Mahavir Jayanti",
+      22: "Eid al-Fitr",
+    },
+    may: {
+      1: "Labor Day",
+      5: "Buddha Purnima",
+    },
+    jun: {
+      18: "Father's Day",
+    },
+    jul: {
+      19: "Muharram",
+    },
+    aug: {
+      15: "Independence Day",
+      30: "Raksha Bandhan",
+    },
+    sep: {
+      5: "Teachers' Day",
+      19: "Ganesh Chaturthi",
+    },
+    oct: {
+      2: "Gandhi Jayanti",
+      24: "Dussehra",
+      31: "Halloween",
+    },
+    nov: {
+      13: "Diwali",
+      14: "Children's Day",
+      27: "Guru Nanak Jayanti",
+    },
+    dec: {
+      25: "Christmas",
+      31: "New Year's Eve",
+    },
+  },
+  2022: {
+    jan: {
+      1: "New Year",
+      14: "Makar Sankranti / Pongal",
+      26: "Republic Day",
+    },
+    feb: {
+      14: "Valentine's Day",
+    },
+    mar: {
+      18: "Holi",
+      8: "International Women's Day",
+    },
+    apr: {
+      10: "Ram Navami",
+      14: "Ambedkar Jayanti / Tamil New Year",
+      22: "Good Friday",
+    },
+    may: {
+      1: "Labor Day",
+      16: "Buddha Purnima",
+    },
+    jun: {
+      19: "Father's Day",
+    },
+    jul: {
+      9: "Eid al-Adha",
+    },
+    aug: {
+      15: "Independence Day",
+      11: "Raksha Bandhan",
+      18: "Janmashtami",
+    },
+    sep: {
+      5: "Teachers' Day",
+      2: "Ganesh Chaturthi",
+    },
+    oct: {
+      2: "Gandhi Jayanti",
+      4: "Dussehra",
+      31: "Halloween",
+    },
+    nov: {
+      24: "Diwali",
+      14: "Children's Day",
+      8: "Guru Nanak Jayanti",
+    },
+    dec: {
+      25: "Christmas",
+      31: "New Year's Eve",
+    },
+  },
+  2021: {
+    jan: {
+      1: "New Year",
+      14: "Makar Sankranti / Pongal",
+      26: "Republic Day",
+    },
+    feb: {
+      14: "Valentine's Day",
+    },
+    mar: {
+      29: "Holi",
+      8: "International Women's Day",
+    },
+    apr: {
+      13: "Ram Navami",
+      14: "Ambedkar Jayanti / Tamil New Year",
+      2: "Good Friday",
+    },
+    may: {
+      1: "Labor Day",
+      26: "Buddha Purnima",
+    },
+    jun: {
+      20: "Father's Day",
+    },
+    jul: {
+      20: "Eid al-Adha",
+    },
+    aug: {
+      15: "Independence Day",
+      22: "Raksha Bandhan",
+      30: "Janmashtami",
+    },
+    sep: {
+      5: "Teachers' Day",
+      10: "Ganesh Chaturthi",
+    },
+    oct: {
+      2: "Gandhi Jayanti",
+      15: "Dussehra",
+      31: "Halloween",
+    },
+    nov: {
+      4: "Diwali",
+      14: "Children's Day",
+      19: "Guru Nanak Jayanti",
+    },
+    dec: {
+      25: "Christmas",
+      31: "New Year's Eve",
+    },
+    aksharaMonth: "All year",
+  },
+};
+
+//1. Create a function that returns the holidays in a given month and year.
+
+//QUESTION 1
+console.log("..........QUESTION 1..........");
+
+const getHolidays = (year, month) => {
+ 
+  if (typeof year !== "number") {
+    return "year not valid";
+  }
+  if (!holidayCalendar[year]) {
+    return "year not found";
+  }
+
+  if (!month || typeof month !== "string") {
+    return "Month not valid";
+  }
+  const holidayMonth = holidayCalendar[year]?.[month];
+  return holidayMonth ? Object.values(holidayMonth) : "month not found";
+};
+console.log(getHolidays(2021, "apr")); // should output ['Ram Navami', 'Ambedkar Jayanti / Tamil New Year', 'Good Friday']
+console.log(getHolidays(2022, "apr")); // should output ['Ram Navami', 'Ambedkar Jayanti / Tamil New Year', 'Good Friday']
+console.log(getHolidays(2023, "apr")); // should output ['Mahavir Jayanti', 'Eid al-Fitr']
+console.log(getHolidays(1997, "apr")); // should output 'Year not found'
+console.log(getHolidays(2021, "bujji")); // should output 'Month not found'
+console.log(getHolidays(2021)); // should output 'Month not valid'
+console.log(getHolidays(2021, 99)); // should output 'Month not valid'
+console.log(getHolidays(2021, null)); // should output 'Month not valid'
+console.log(getHolidays(2021, false)); // should output 'Month not valid'
+console.log(getHolidays()); // should output 'Year not valid'
+console.log(getHolidays(null, false)); // should output 'Year not valid'
+
+//QUESTION 2
+
+console.log('..........QUESTION 2..........')
+// 2. Create a function that takes a year as an argument and returns the number of holidays in that year.
+
+const getHolidaysCount = (year) => {
+    
+  if (typeof year !== "number") {
+    return "year not valid";
+  }
+  if (!holidayCalendar[year]) {
+    return "year not found";
+  }
+ 
+let holidays = 0;
+  for (let month in holidayCalendar[year] ){
+    holidays +=  Object.values(holidayCalendar[year][month]).length
+
+  }
+  return holidays   
+}
+console.log(getHolidaysCount(2021)); // should output 24
+console.log(getHolidaysCount(2022)); // should output 21
+console.log(getHolidaysCount(2023)); // should output 21
+console.log(getHolidaysCount(1997)); // should output 'Year not found'
+console.log(getHolidaysCount(null)); // should output 'Year not valid'
+console.log(getHolidaysCount(false)); // should output 'Year not valid'
+console.log(getHolidaysCount()); // should output 'Year not valid'
+
+
+//QUESTION 3
+
+console.log('..........QUESTION 3..........')
+// 3. Create a function that takes a year as an argument and returns the number of holidays in that year and the month with the most holidays.
+
+const getHolidaysCountAndMonth = year => {
+    let holidays = 0;
+    let monthWithMostHolidays = "";
+    let maxMonthHolidays = 0
+    if (typeof year !== "number"){
+        return "year not valid"
+    }
+    if (!holidayCalendar[year]){
+        return "year not found"
+    }
+
+    for (let month in holidayCalendar[year]){
+        const holidayMonthCount = Object.values(holidayCalendar[year][month]).length
+         holidays += holidayMonthCount 
+        if (holidayMonthCount > maxMonthHolidays) {
+             maxMonthHolidays = holidayMonthCount
+            monthWithMostHolidays = month
+        }
+        
+    }
+   return {count:holidays, month:monthWithMostHolidays }
+	// return the number of holidays in the year and the month with the most holidays
+};
+console.log(getHolidaysCountAndMonth(2021)); // should output { count: 26, month: 'apr' }
+console.log(getHolidaysCountAndMonth(2022)); // should output { count: 21, month: 'apr' }
+console.log(getHolidaysCountAndMonth(2023)); // should output { count: 21, month: 'apr' }
+console.log(getHolidaysCountAndMonth(1997)); // should output 'Year not found'
+console.log(getHolidaysCountAndMonth(null)); // should output 'Year not valid'
+console.log(getHolidaysCountAndMonth(false)); // should output 'Year not valid'
+console.log(getHolidaysCountAndMonth()); // should output 'Year not valid'
